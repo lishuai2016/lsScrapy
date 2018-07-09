@@ -68,9 +68,10 @@ COOKIES_ENABLED = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'lsScrapy.pipelines.LsscrapyPipeline': 300,
-# }
+ITEM_PIPELINES = {
+   'lsScrapy.pipelines.LocalJsonPipeline': 300,  #本地json文件存储数据
+   # 'lsScrapy.pipelines.DBPipeline': 1,        #把数据保存到MySQL数据库
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -133,5 +134,12 @@ COOKIES_ENABLED = False
 
 
 #简单配置即可将数据保存到cvs文件中
-FEED_URI = u'file:///F:/douban.csv' # 文件保存路径
-FEED_FORMAT = 'CSV' # 保存为csv文件
+# FEED_URI = u'file:///D:/douban.csv' # 文件保存路径
+# FEED_FORMAT = 'CSV' # 保存为csv文件
+
+
+#通过MySQL进行存储，配置MySQL数据库的连接信息
+MYSQL_HOST = 'localhost'
+MYSQL_DBNAME = 'test'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = ''

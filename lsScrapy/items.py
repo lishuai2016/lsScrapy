@@ -10,6 +10,7 @@ import scrapy
 
 class LsscrapyItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    # url = scrapy.Field()
+    #定义的字段名和下面pipeline中的要对应起来
+    text = scrapy.Field()
+    author = scrapy.Field()
     pass

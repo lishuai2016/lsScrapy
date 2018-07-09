@@ -1,3 +1,17 @@
+安装scrapy的两种方式：
+1、在Python路径下安装，（比较麻烦，需要安装的包比较多）
+2、在anaconda 下安装conda install scrapy即可（推荐）
+
+
+初始化项目后，各个文件的作用：
+1. 在spiders文件夹下编写自己的爬虫
+2. 在items中编写容器用于存放爬取到的数据
+3. 在pipelines中对数据进行各种操作
+4. 在settings中进行项目的各种设置。
+
+
+
+
 对scrapy经典框架爬虫原理的理解
 1，spider打开某网页，获取到一个或者多个request，经由scrapy engine传送给调度器scheduler
 request特别多并且速度特别快会在scheduler形成请求队列queue，由scheduler安排执行
