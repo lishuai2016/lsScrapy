@@ -1,10 +1,11 @@
 import scrapy
 import re
+import datetime
 
 class HZxinFanf(scrapy.Spider):
     name="hzxinfang"
     start_urls = [
-        "https://hz.fang.lianjia.com/loupan/rs/",
+        "https://hz.fang.lianjia.com/loupan/pg1/",
     ]
 
     def parse(self, response):
@@ -20,9 +21,14 @@ class HZxinFanf(scrapy.Spider):
             name = house.xpath(".//div[@class='resblock-name']/a/text()").extract(),  # 小区名称
             area = house.xpath(".//div[@class='resblock-area']/span/text()").re("\d+.\d+"),  # 面积
             type = house.xpath(".//div[@class='resblock-name']/span[@class='resblock-type']/text()").extract(),  # 类型
-            feature = house.xpath(".//div[@class='resblock-tag']/span/text()").extract()  # 特色标签
+            feature = house.xpath(".//div[@class='resblock-tag']/span/text()").extract(),  # 特色标签
+
+
+
 
             yield {
+                'current_url':response.url,   #当前请求的URL
+                'current_time':datetime.datetime.now().strftime('%Y-%m-%d'),#当前日期
                 'region': region,
                 'bankuai': bankuai,
                 'street': street,
@@ -32,13 +38,18 @@ class HZxinFanf(scrapy.Spider):
                 'name': name,
                 'area': area,
                 'type': type,
-                'feature': feature
+                'feature': feature,
             }
 
-        page = response.xpath("//div[@class='page-box'][@data-page]").re("\d+")  # 获得data-page的数字内容 ，返回一个list
-        p = re.compile(r'[^\d]+')
-        if len(page) > 1 and page[0] != page[1]:
-            next_page = p.match(response.url).group() + str(int(page[1]) + 1)  # 在当前页的基础上加1
+
+
+        page = response.xpath("//div[@class='page-box'][@data-current]").re("\d+")  # 当前页码[1,700]
+        total_num = page[1]
+        #n_page = "https://hz.fang.lianjia.com/loupan/pg"   #有规律的下一页https://hz.fang.lianjia.com/loupan/pg1
+        p1 = re.compile(r'[^\d]+')  #获取URL的公共前缀
+        current_num = re.findall(r"\d+",response.url)[0]
+        if  current_num != total_num:
+            next_page = p1.match(response.url).group() + str(int(current_num) + 1)  # 在当前页的基础上加1
             print(next_page + "****************************************************************")
             next_page = response.urljoin(next_page)
             yield scrapy.Request(next_page, callback=self.parse)  # 递归请求

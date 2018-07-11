@@ -25,3 +25,8 @@
 # atm = bc.create_atm();
 # for i in atm:
 #     print(i)
+import datetime
+import re
+print(datetime.datetime.now().strftime('%Y-%m-%d'))
+
+print (re.findall(r"\d+","https://hz.fang.lianjia.com/loupan/pg111"))
