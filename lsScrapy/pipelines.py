@@ -18,7 +18,7 @@ from lsScrapy import settings
 class LocalJsonPipeline(object):
     def __init__(self):
         # 打开文件
-        self.file = open('data.json', 'w', encoding='utf-8')   #在当前目录下生成json文件
+        self.file = open('hzxinfang.json', 'w', encoding='utf-8')   #在当前目录下生成json文件
 
     # 该方法用于处理数据
     def process_item(self, item, spider):

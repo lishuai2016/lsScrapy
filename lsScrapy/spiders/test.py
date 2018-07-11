@@ -30,3 +30,7 @@ import re
 print(datetime.datetime.now().strftime('%Y-%m-%d'))
 
 print (re.findall(r"\d+","https://hz.fang.lianjia.com/loupan/pg111"))
+
+
+s = "https://hz.fang.lianjia.com/loupan/pg1"
+print(s[:s.index("pg")])
