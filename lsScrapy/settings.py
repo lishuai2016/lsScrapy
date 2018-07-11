@@ -68,10 +68,10 @@ COOKIES_ENABLED = False
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'lsScrapy.pipelines.LocalJsonPipeline': 300,  #本地json文件存储数据
-   # 'lsScrapy.pipelines.DBPipeline': 1,        #把数据保存到MySQL数据库
-}
+# ITEM_PIPELINES = {
+#    'lsScrapy.pipelines.LocalJsonPipeline': 300,  #本地json文件存储数据
+#    # 'lsScrapy.pipelines.DBPipeline': 1,        #把数据保存到MySQL数据库
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

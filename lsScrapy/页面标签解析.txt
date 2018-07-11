@@ -1,0 +1,4 @@
+* //ul/li表示选择所有的ul标签下的li标签
+* a/@href表示选择所有a标签的href属性
+* a/text()表示选择a标签文本
+* div[@id=”content_right”]表示选择所有id属性是content_right的div标签
