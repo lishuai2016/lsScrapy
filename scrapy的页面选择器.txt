@@ -1,0 +1,27 @@
+Scrapy提取数据有自己的一套机制。它们被称作选择器(seletors)，
+因为他们通过特定的 XPath 或者 CSS 表达式来“选择” HTML文件中的某个部分。
+
+XPath 是一门用来在XML文件中选择节点的语言，也可以用在HTML上。
+ CSS 是一门将HTML文档样式化的语言。选择器由它定义，并与特定的HTML元素的样式相关连。
+
+Scrapy选择器构建于 lxml 库之上，这意味着它们在速度和解析准确性上非常相似。
+
+
+
+
+
+
+
+官方文档：英文和中文
+https://docs.scrapy.org/en/latest/topics/selectors.html
+http://scrapy-chs.readthedocs.io/zh_CN/0.24/topics/selectors.html
+
+
+https://blog.scrapinghub.com/2014/07/17/xpath-tips-from-the-web-scraping-trenches
+
+https://www.cnblogs.com/sufei-duoduo/p/5868027.html
+
+
+https://www.jianshu.com/p/26da91b38df7
+
+
